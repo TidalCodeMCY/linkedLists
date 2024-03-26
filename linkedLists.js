@@ -63,13 +63,31 @@ class linkedList{
                 return 'prepend successful!';
             }
     }
+
+    append(val){
+        // This adds a new Node to the end of the list replacing the last node as the pointer to null.
+        const newNode = new Node(val);
+            if(this.size() > 0){
+                this.tail().next = newNode;
+                this.list.push(newNode);
+                this.len++;
+                return 'Append Successful!';
+            }else{
+                this.list = [];
+                this.list.push(newNode);
+                this.len++;
+                return 'Append Successful!';
+            }
+    }
 }
 
 const newList = new linkedList();
 newList.prepend(7);
 newList.prepend(13);
 newList.prepend(17);
-newList.prepend(133);
+newList.append(15);
+newList.append(17)
 console.log(newList.tail());
-//console.log(newList.size());
-//console.log(newList.head());
+console.log(newList.size());
+console.log(newList.head());
+//console.log(newList);
